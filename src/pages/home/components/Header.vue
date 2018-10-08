@@ -1,51 +1,84 @@
 <template>
-  <b-navbar toggleable="md" type="dark" variant="info">
+  <b-navbar toggleable="md" type="dark" variant="dark " fixed="top">
 
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
-    <b-navbar-brand href="#">NavBar</b-navbar-brand>
+    <b-navbar-brand class="header-brand-logo" href="#">
+      <img class="header-logo" :src="leftLogo" alt="wnm" >
+    </b-navbar-brand>
 
     <b-collapse is-nav id="nav_collapse">
 
       <b-navbar-nav>
-        <b-nav-item href="#">Link</b-nav-item>
-        <b-nav-item href="#" disabled>Disabled</b-nav-item>
+        <b-nav-item href="#">WeNeverMe</b-nav-item>
+        <b-nav-item href="#">我不是猫</b-nav-item>
+        <b-nav-item href="#">我不是佟离</b-nav-item>
+        <b-nav-item href="#" active="true">我不是江小白</b-nav-item>
       </b-navbar-nav>
 
-      <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
 
-        <b-nav-form>
-          <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-          <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
-        </b-nav-form>
+        <b-navbar-brand class="header-brand-profile" href="#">
+          <img class="header-profile" :src="profilePhoto" alt="me" >
+        </b-navbar-brand>
 
-        <b-nav-item-dropdown text="Lang" right>
-          <b-dropdown-item href="#">EN</b-dropdown-item>
-          <b-dropdown-item href="#">ES</b-dropdown-item>
-          <b-dropdown-item href="#">RU</b-dropdown-item>
-          <b-dropdown-item href="#">FA</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown right>
-          <!-- Using button-content slot -->
-          <template slot="button-content">
-            <em>User</em>
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Signout</b-dropdown-item>
-        </b-nav-item-dropdown>
       </b-navbar-nav>
 
     </b-collapse>
+
+    <b-navbar-brand class="header-brand-playing" href="#">
+      <img class="header-playing" :src="profilePhoto" alt="playing" >
+    </b-navbar-brand>
+    <!--TODO: 手机屏幕点击导航后，会把这个按钮也收进去-->
+
   </b-navbar>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  data () {
+    return {
+      leftLogo: require('@/assets/imgs/logo2.png'),
+      profilePhoto: '/static/logo4.png'
+    }
+  }
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+  .header-brand-logo
+    margin: 0
+    padding: 0
+    position: relative
+    overflow: hidden
+    width: 40px
+    height: 40px
+    .header-logo
+      width: 100%
+      height: 100%
+  .header-brand-profile
+    margin: 0
+    padding: 0
+    position: relative
+    overflow: hidden
+    width: 40px
+    height: 40px
+    .header-profile
+      margin: 0
+      padding: 15%
+      width: 100%
+      height: 100%
+  .header-brand-playing
+    margin: 0
+    padding: 0
+    position: relative
+    overflow: hidden
+    width: 40px
+    height: 40px
+    .header-playing
+      margin: 0
+      padding: 15%
+      width: 100%
+      height: 100%
 </style>

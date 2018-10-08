@@ -1,5 +1,5 @@
 <template>
-  <home-header></home-header>
+    <home-header></home-header>
 </template>
 
 <script>
@@ -8,6 +8,9 @@ export default {
   name: 'Home',
   components: {
     HomeHeader
+  },
+  activated () {
+    this.getProfilePhote()
   }
 }
 </script>
